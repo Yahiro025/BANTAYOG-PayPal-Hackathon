@@ -1,0 +1,70 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "API_BASE_URL",
+    "CRON_SECRET",
+    "NEXT_PUBLIC_API_BASE_URL",
+    "DEV_API_DELAY_MS",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "QR_TOKEN_SECRET",
+    "QR_TOKEN_TTL_SECONDS",
+    "JWT_SECRET",
+    "JWT_SIGNING_SECRET",
+    "UPSTASH_REDIS_REST_TOKEN",
+    "UPSTASH_REDIS_REST_URL",
+    "CUSTODIAL_KEY_ENCRYPTION_KEY",
+    "GEMINI_CONFIDENCE_THRESHOLD",
+    "GEMINI_API_KEY",
+    "GEMINI_API_KEYS",
+    "GEMINI_VISION_MODEL",
+    "STELLAR_HORIZON_URL",
+    "STELLAR_NETWORK_PASSPHRASE",
+    "PHPC_ASSET_CODE",
+    "PHPC_ISSUER_PUBLIC_KEY",
+    "PHPC_ISSUER_SECRET",
+    "PHPC_DISTRIBUTION_SECRET",
+    "STELLAR_SPONSOR_SECRET",
+    "CORS_ORIGIN",
+    "PHPC_SUBSIDY_ADDRESS",
+    "PHPC_TOKEN_ADDRESS",
+    "DEPLOYER_PRIVATE_KEY",
+    "LGU_DISTRICT_LABEL",
+    "RECONCILE_INTERVAL_MS"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**", ".next/**"]
+    },
+    "@bantayog/db#build": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "@bantayog/schema#build": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "type-check": {
+      "outputs": [],
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,63 @@
+# =============================================================================
+# BANTAYOG — Supabase local configuration
+# BE1 owns migrations + RLS.
+# =============================================================================
+
+project_id = "bantayog"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[db.pooler]
+enabled = false
+port = 54329
+pool_mode = "transaction"
+default_pool_size = 20
+max_client_conn = 100
+
+[studio]
+enabled = true
+port = 54323
+
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+# =============================================================================
+# Auth configuration
+#
+# LOCAL/DEV: confirmations OFF so sign-ups work without email verification.
+# PRODUCTION: confirmations MUST be ON. Set via Supabase Dashboard > Auth > Email:
+#   - Enable "Confirm email" checkbox
+#   - This prevents unverified email signups in production.
+#   - Do NOT set enable_confirmations = true in this file; use the dashboard
+#     or environment-level config for production.
+# =============================================================================
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false   # <-- LOCAL ONLY. Production: enable via dashboard.
+
+[auth.external.github]
+enabled = false
+
+[analytics]
+enabled = false
