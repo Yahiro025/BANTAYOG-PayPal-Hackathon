@@ -18,6 +18,8 @@ BANTAYOG
 
 ## Project Brief
 
+> **food credits should be usable where people already shop—not only where payment infrastructure exists.**
+
 **Food credits address a real nutrition need.**  
 Low-income families may struggle to afford a varied, nutritious diet, putting children and other vulnerable household members at risk of poor nutrition. Food-credit programs help by giving eligible households purchasing power for approved food items instead of unrestricted cash. Their aim is to improve access to food and support healthier diets. **But food credits only help when families can actually redeem them.**
 
